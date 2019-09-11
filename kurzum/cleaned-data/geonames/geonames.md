@@ -3,6 +3,7 @@ Geonames provides a malformed RDF/XML dump, we parsed it, because we needed it i
 
 
 ## Procedure
+Our use case is to load geonames in our [FlexiFusion project](https://svn.aksw.org/papers/2019/ISWC_FlexiFusion/public.pdf).
 Johannes, Marvin and me needed a while to finally get it working with `parallel`. There were quite a few scripts out there already like [this one](https://swebdev.wordpress.com/2012/10/01/loading-geonames-in-virtuoso/) from 2012, so the problem seems to stay with us.   
 ```
 cat all-geonames-rdf.txt | grep -v "^http" | parallel --pipe -N1 rapper -i rdfxml - urn:base > all-parallel.nt 2> all-paralle.log
